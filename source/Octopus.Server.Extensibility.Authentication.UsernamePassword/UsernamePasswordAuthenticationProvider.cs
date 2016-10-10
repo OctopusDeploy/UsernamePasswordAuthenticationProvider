@@ -23,12 +23,14 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
         public AuthenticationProviderElement GetAuthenticationProviderElement(string siteBaseUri)
         {
-            return new AuthenticationProviderElement
+            var authenticationProviderElement = new AuthenticationProviderElement
             {
                 Name = IdentityProviderName,
-                FormsLoginEnabled = true,
-                FormsAuthenticateUri = AuthenticateUri
+                FormsLoginEnabled = true
             };
+            authenticationProviderElement.Links.Add(AuthenticationProviderElement.FormsAuthenticateLinkName, AuthenticateUri);
+
+            return authenticationProviderElement;
         }
     }
 }
