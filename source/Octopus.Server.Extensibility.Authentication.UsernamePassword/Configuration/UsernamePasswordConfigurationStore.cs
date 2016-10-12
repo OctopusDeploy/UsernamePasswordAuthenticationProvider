@@ -40,9 +40,8 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
 
         UsernamePasswordConfiguration MoveSettingsToDatabase()
         {
-            var doc = new UsernamePasswordConfiguration
+            var doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
             {
-                Id = SingletonId,
                 IsEnabled = authenticationConfigurationStore.GetAuthenticationMode() == "UsernamePassword" || authenticationConfigurationStore.GetAuthenticationMode() == "0"
             };
 

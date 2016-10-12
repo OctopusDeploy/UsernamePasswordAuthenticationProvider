@@ -1,10 +1,17 @@
-﻿using Octopus.Server.Extensibility.HostServices.Model;
+﻿using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfiguration : IId
+    public class UsernamePasswordConfiguration : ExtensionConfigurationDocument
     {
-        public string Id { get; set; }
+        protected UsernamePasswordConfiguration()
+        {
+        }
+
+        public UsernamePasswordConfiguration(string name, string extensionAuthor) : base(name, extensionAuthor)
+        {
+            Id = UsernamePasswordConfigurationStore.SingletonId;
+        }
 
         public bool IsEnabled { get; set; }
     }
