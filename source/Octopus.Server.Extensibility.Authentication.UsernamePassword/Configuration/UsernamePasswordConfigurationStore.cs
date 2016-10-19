@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using Octopus.Data.Storage.Configuration;
+using Octopus.Server.Extensibility.Authentication.HostServices;
 using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
-using Octopus.Server.Extensibility.HostServices.Authentication;
-using Octopus.Server.Extensibility.HostServices.Model;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {

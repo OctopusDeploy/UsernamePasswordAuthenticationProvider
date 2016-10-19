@@ -1,4 +1,5 @@
-﻿using Octopus.Server.Extensibility.HostServices.Model;
+﻿using Octopus.Data.Model.User;
+using Octopus.Data.Storage.User;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth
 {
