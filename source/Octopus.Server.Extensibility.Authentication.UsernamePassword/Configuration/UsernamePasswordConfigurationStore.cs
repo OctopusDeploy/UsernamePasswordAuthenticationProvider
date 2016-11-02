@@ -2,6 +2,7 @@
 using Octopus.Data.Storage.Configuration;
 using Octopus.Server.Extensibility.Authentication.HostServices;
 using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
+using System.Linq;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
@@ -38,11 +39,14 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             configurationStore.Update(doc);
         }
 
+        readonly string[] legacyModes = { "UsernamePassword", "0" };
+
         UsernamePasswordConfiguration MoveSettingsToDatabase()
         {
+            var authenticationMode = authenticationConfigurationStore.GetAuthenticationMode();
             var doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
             {
-                IsEnabled = authenticationConfigurationStore.GetAuthenticationMode() == "UsernamePassword" || authenticationConfigurationStore.GetAuthenticationMode() == "0"
+                IsEnabled = legacyModes.Contains(authenticationMode.Replace("\"", ""))
             };
 
             configurationStore.Create(doc);
