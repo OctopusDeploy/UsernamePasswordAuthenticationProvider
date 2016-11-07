@@ -21,14 +21,14 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
         string AuthenticateUri => UsernamePasswordApi.ApiUsersAuthenticate;
 
-        public AuthenticationProviderElement GetAuthenticationProviderElement(string siteBaseUri)
+        public AuthenticationProviderElement GetAuthenticationProviderElement(string requestDirectoryPath)
         {
             var authenticationProviderElement = new AuthenticationProviderElement
             {
                 Name = IdentityProviderName,
                 FormsLoginEnabled = true
             };
-            authenticationProviderElement.Links.Add(AuthenticationProviderElement.FormsAuthenticateLinkName, AuthenticateUri);
+            authenticationProviderElement.Links.Add(AuthenticationProviderElement.FormsAuthenticateLinkName, "~" + AuthenticateUri);
 
             return authenticationProviderElement;
         }
