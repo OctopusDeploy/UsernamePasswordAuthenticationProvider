@@ -32,5 +32,10 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
             return authenticationProviderElement;
         }
+
+        public string[] GetAuthenticationUrls()
+        {
+            return new[] { AuthenticateUri };
+        }
     }
 }
