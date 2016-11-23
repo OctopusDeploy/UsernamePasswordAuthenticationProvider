@@ -47,7 +47,9 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Web
             if (!configurationStore.GetIsEnabled())
                 return responseCreator.AsStatusCode(HttpStatusCode.BadRequest);
 
-            var model = modelBinder.Bind<LoginCommand>(context);
+            var model = modelBinder.BindAndValidate<LoginCommand>(context);
+            if (!context.ModelValidationResult.IsValid)
+                return responseCreator.BadRequest(context.ModelValidationResult);
 
             var action = loginTracker.BeforeAttempt(model.Username, context.Request.UserHostAddress);
             if (action == InvalidLoginAction.Ban)
