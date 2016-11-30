@@ -21,11 +21,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
         string AuthenticateUri => UsernamePasswordApi.ApiUsersAuthenticate;
 
-        public AuthenticationProviderElement GetAuthenticationProviderElement(string requestDirectoryPath)
-        {
-            return GetAuthenticationProviderElement();
-        }
-
         public AuthenticationProviderElement GetAuthenticationProviderElement()
         {
             var authenticationProviderElement = new AuthenticationProviderElement
