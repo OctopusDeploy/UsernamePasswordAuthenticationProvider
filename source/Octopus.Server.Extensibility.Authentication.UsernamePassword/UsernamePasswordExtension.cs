@@ -2,10 +2,8 @@
 using Octopus.Server.Extensibility.Authentication.Extensions;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth;
-using Octopus.Server.Extensibility.Authentication.UsernamePassword.Web;
 using Octopus.Server.Extensibility.Extensions;
 using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
-using Octopus.Server.Extensibility.HostServices.Web;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 {
@@ -14,8 +12,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
     {
         public void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UsernamePasswordHomeLinksContributor>().As<IHomeLinksContributor>().InstancePerDependency();
-
             builder.RegisterType<UsernamePasswordConfigurationMapping>().As<IConfigurationDocumentMapper>().InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordConfigurationStore>()
@@ -32,8 +28,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
                 .As<IUsernamePasswordCredentialValidator>()
                 .As<IDoesBasicAuthentication>()
                 .InstancePerDependency();
-
-            builder.RegisterType<UserLoginAction>().AsSelf().InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordAuthenticationProvider>().As<IAuthenticationProvider>().InstancePerDependency();
         }
