@@ -57,7 +57,14 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Web
                 return responseCreator.BadRequest("You have had too many failed login attempts in a short period of time. Please try again later.");
             }
 
-            var user = credentialValidator.ValidateCredentials(model.Username, model.Password);
+            var userResult = credentialValidator.ValidateCredentials(model.Username, model.Password);
+            if (!userResult.Succeeded)
+            {
+                return responseCreator.BadRequest(userResult.FailureReason);
+            }
+
+            var user = userResult.User;
+
             if (user == null || !user.IsActive || user.IsService)
             {
                 loginTracker.RecordFailure(model.Username, context.Request.UserHostAddress);
