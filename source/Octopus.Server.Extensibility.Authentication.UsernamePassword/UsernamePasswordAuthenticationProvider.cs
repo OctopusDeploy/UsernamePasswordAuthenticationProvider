@@ -19,8 +19,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
         public bool SupportsPasswordManagement => true;
 
-        string AuthenticateUri => UsernamePasswordApi.ApiUsersAuthenticate;
-
         public AuthenticationProviderElement GetAuthenticationProviderElement()
         {
             var authenticationProviderElement = new AuthenticationProviderElement
@@ -28,14 +26,13 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
                 Name = IdentityProviderName,
                 FormsLoginEnabled = true
             };
-            authenticationProviderElement.Links.Add(AuthenticationProviderElement.FormsAuthenticateLinkName, "~" + AuthenticateUri);
 
             return authenticationProviderElement;
         }
 
         public string[] GetAuthenticationUrls()
         {
-            return new[] { AuthenticateUri };
+            return new string[0];
         }
     }
 }
