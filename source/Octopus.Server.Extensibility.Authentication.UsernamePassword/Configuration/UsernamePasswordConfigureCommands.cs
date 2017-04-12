@@ -30,7 +30,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
 
         public void Handle(string webAuthenticationMode)
         {
-            var isEnabled = webAuthenticationMode == "UsernamePassword";
+            var isEnabled = "UsernamePassword".Equals(webAuthenticationMode, StringComparison.InvariantCultureIgnoreCase);
             configurationStore.Value.SetIsEnabled(isEnabled);
             log.Info($"Octopus username/password authentication IsEnabled set, based on webAuthenticationMode={webAuthenticationMode}, to: {isEnabled}");
         }
