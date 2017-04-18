@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Octopus.Data.Storage.Configuration;
 using Octopus.Server.Extensibility.Authentication.HostServices;
 using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
@@ -46,7 +47,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             var authenticationMode = authenticationConfigurationStore.GetAuthenticationMode();
             var doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
             {
-                IsEnabled = legacyModes.Contains(authenticationMode.Replace("\"", ""))
+                IsEnabled = legacyModes.Any(x => x.Equals(authenticationMode.Replace("\"", ""), StringComparison.InvariantCultureIgnoreCase)),
             };
 
             configurationStore.Create(doc);
