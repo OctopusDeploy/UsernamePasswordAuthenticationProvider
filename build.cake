@@ -19,6 +19,8 @@ var configuration = Argument("configuration", "Release");
 var publishDir = "./publish";
 var localPackagesDir = "../LocalPackages";
 var artifactsDir = "./artifacts";
+var assetDir = "./BuildAssets";
+var bin451 = "/bin/Release/net451/";
 
 var gitVersionInfo = GitVersion(new GitVersionSettings {
     OutputType = GitVersionOutput.Json
@@ -85,12 +87,17 @@ Task("__Build")
 
 Task("__Pack")
     .Does(() => {
-        DotNetCorePack("source", new DotNetCorePackSettings
-        {
-            Configuration = configuration,
-            OutputDirectory = artifactsDir,
-            NoBuild = true,
-            ArgumentCustomization = args => args.Append($"/p:Version={nugetVersion}")
+        var solutionDir = "./source/";
+        var odNugetPackDir = Path.Combine(publishDir, "od");
+        var nuspecFile = "Octopus.Server.Extensibility.Authentication.UsernamePassword.nuspec";
+        CreateDirectory(odNugetPackDir);
+        CopyFileToDirectory(Path.Combine(assetDir, nuspecFile), odNugetPackDir);
+
+        CopyFileToDirectory(solutionDir + "Octopus.Server.Extensibility.Authentication.UsernamePassword" + bin451 + "Octopus.Server.Extensibility.Authentication.UsernamePassword.dll", odNugetPackDir);
+
+        NuGetPack(Path.Combine(odNugetPackDir, nuspecFile), new NuGetPackSettings {
+            Version = nugetVersion,
+            OutputDirectory = artifactsDir
         });
 });
 
