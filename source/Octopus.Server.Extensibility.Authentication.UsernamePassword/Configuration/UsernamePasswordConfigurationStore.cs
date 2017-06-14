@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Octopus.Data.Storage.Configuration;
-using Octopus.Server.Extensibility.Authentication.HostServices;
-using Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration;
-using System.Linq;
+using Octopus.Node.Extensibility.Authentication.HostServices;
+using Octopus.Node.Extensibility.Extensions.Infrastructure.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {

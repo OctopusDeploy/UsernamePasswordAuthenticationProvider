@@ -1,5 +1,5 @@
-﻿using Octopus.Server.Extensibility.Authentication.Extensions;
-using Octopus.Server.Extensibility.Authentication.Resources;
+﻿using Octopus.Node.Extensibility.Authentication.Extensions;
+using Octopus.Node.Extensibility.Authentication.Resources;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
