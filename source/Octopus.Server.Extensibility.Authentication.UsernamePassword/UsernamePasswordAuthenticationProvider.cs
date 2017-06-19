@@ -6,6 +6,8 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 {
     public class UsernamePasswordAuthenticationProvider : IAuthenticationProvider
     {
+        public const string ProviderName = "Octopus";
+        
         readonly IUsernamePasswordConfigurationStore configurationStore;
 
         public UsernamePasswordAuthenticationProvider(IUsernamePasswordConfigurationStore configurationStore)
@@ -13,7 +15,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
             this.configurationStore = configurationStore;
         }
 
-        public string IdentityProviderName => "Octopus";
+        public string IdentityProviderName => ProviderName;
 
         public bool IsEnabled => configurationStore.GetIsEnabled();
 
