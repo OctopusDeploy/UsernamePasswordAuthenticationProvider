@@ -26,6 +26,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
             var authenticationProviderElement = new AuthenticationProviderElement
             {
                 Name = IdentityProviderName,
+                IdentityType = IdentityType.UsernamePassword,
                 FormsLoginEnabled = true
             };
 
