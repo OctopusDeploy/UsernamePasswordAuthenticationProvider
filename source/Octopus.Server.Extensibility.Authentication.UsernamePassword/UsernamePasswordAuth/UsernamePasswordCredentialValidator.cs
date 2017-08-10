@@ -1,4 +1,5 @@
-﻿using Octopus.Data.Storage.User;
+﻿using System.Threading;
+using Octopus.Data.Storage.User;
 using Octopus.Server.Extensibility.Authentication.Storage.User;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 
@@ -19,7 +20,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
 
         public int Priority => 50;
 
-        public AuthenticationUserCreateOrUpdateResult ValidateCredentials(string username, string password)
+        public AuthenticationUserCreateOrUpdateResult ValidateCredentials(string username, string password, CancellationToken cancellationToken)
         {
             if (!configurationStore.GetIsEnabled())
             {
