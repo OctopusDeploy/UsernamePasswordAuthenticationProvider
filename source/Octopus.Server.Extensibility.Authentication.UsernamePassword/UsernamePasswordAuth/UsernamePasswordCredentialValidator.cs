@@ -1,4 +1,5 @@
-﻿using Octopus.Data.Storage.User;
+﻿using System.Threading;
+using Octopus.Data.Storage.User;
 using Octopus.Node.Extensibility.Authentication.Storage.User;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 
@@ -19,7 +20,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
 
         public int Priority => 50;
 
-        public AuthenticationUserCreateResult ValidateCredentials(string username, string password)
+        public AuthenticationUserCreateResult ValidateCredentials(string username, string password, CancellationToken cancellationToken)
         {
             if (!configurationStore.GetIsEnabled())
             {
@@ -28,12 +29,9 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
 
             var user = userStore.GetByUsername(username);
 
-            if (user != null)
+            if (user != null && user.ValidatePassword(password))
             {
-                if (user.ValidatePassword(password))
-                {
-                    return new AuthenticationUserCreateResult(user);
-                }
+                return new AuthenticationUserCreateResult(user);
             }
 
             return new AuthenticationUserCreateResult("Invalid username or password.");
