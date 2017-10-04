@@ -21,7 +21,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
             builder.RegisterType<UsernamePasswordConfigureCommands>()
                 .As<IContributeToConfigureCommand>()
-                .As<IHandleLegacyWebAuthenticationModeConfigurationCommand>()
                 .InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordCredentialValidator>()

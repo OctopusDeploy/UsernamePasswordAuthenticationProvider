@@ -5,7 +5,7 @@ using Octopus.Node.Extensibility.Extensions.Infrastructure.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfigureCommands : IContributeToConfigureCommand, IHandleLegacyWebAuthenticationModeConfigurationCommand
+    public class UsernamePasswordConfigureCommands : IContributeToConfigureCommand
     {
         readonly ILog log;
         readonly Lazy<IUsernamePasswordConfigurationStore> configurationStore;
@@ -26,13 +26,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
                 configurationStore.Value.SetIsEnabled(isEnabled);
                 log.Info($"Octopus username/password authentication IsEnabled set to: {isEnabled}");
             });
-        }
-
-        public void Handle(string webAuthenticationMode)
-        {
-            var isEnabled = "UsernamePassword".Equals(webAuthenticationMode, StringComparison.InvariantCultureIgnoreCase);
-            configurationStore.Value.SetIsEnabled(isEnabled);
-            log.Info($"Octopus username/password authentication IsEnabled set, based on webAuthenticationMode={webAuthenticationMode}, to: {isEnabled}");
         }
     }
 }
