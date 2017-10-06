@@ -55,7 +55,14 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             return doc;
         }
 
-        public string ConfigurationSetName => "Usernames and passwords managed by Octopus";
+        public string Id => SingletonId;
+
+        public string ConfigurationSetName => "Username / Password";
+
+        public virtual string Description => "Usernames and passwords managed by Octopus";
+
+        public Type MetadataResourceType => typeof(UsernamePasswordConfiguration);
+
         public IEnumerable<ConfigurationValue> GetConfigurationValues()
         {
             yield return new ConfigurationValue("Octopus.UsernamePassword.IsEnabled", GetIsEnabled().ToString(), GetIsEnabled(), "Is Enabled");
