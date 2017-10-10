@@ -1,0 +1,50 @@
+﻿using System;
+using System.Linq;
+using Octopus.Configuration;
+using Octopus.Data.Storage.Configuration;
+using Octopus.Node.Extensibility.Extensions.Infrastructure;
+
+namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
+{
+    public class DatabaseInitializer : ExecuteWhenDatabaseInitializes
+    {
+        readonly IConfigurationStore configurationStore;
+        readonly IKeyValueStore settings;
+
+        bool cleanupRequired = false;
+
+        public DatabaseInitializer(IConfigurationStore configurationStore, IKeyValueStore settings)
+        {
+            this.configurationStore = configurationStore;
+            this.settings = settings;
+        }
+
+        readonly string[] legacyModes = { "UsernamePassword", "0" };
+
+        public override void Execute()
+        {
+            var doc = configurationStore.Get<UsernamePasswordConfiguration>(UsernamePasswordConfigurationStore.SingletonId);
+            if (doc != null)
+                return;
+
+            var authenticationMode = settings.Get("Octopus.WebPortal.AuthenticationMode", string.Empty);
+            doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
+            {
+                IsEnabled = legacyModes.Any(x => x.Equals(authenticationMode.Replace("\"", ""), StringComparison.InvariantCultureIgnoreCase)),
+            };
+
+            configurationStore.Create(doc);
+
+            cleanupRequired = true;
+        }
+
+        public override void PostExecute()
+        {
+            if (cleanupRequired == false)
+                return;
+
+            settings.Remove("Octopus.WebPortal.AuthenticationMode");
+            settings.Save();
+        }
+    }
+}
