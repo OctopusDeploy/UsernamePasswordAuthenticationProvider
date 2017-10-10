@@ -10,6 +10,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
 
         public UsernamePasswordConfiguration(string name, string extensionAuthor) : base(name, extensionAuthor)
         {
+            Id = UsernamePasswordConfigurationStore.SingletonId;
         }
 
         public bool IsEnabled { get; set; }
