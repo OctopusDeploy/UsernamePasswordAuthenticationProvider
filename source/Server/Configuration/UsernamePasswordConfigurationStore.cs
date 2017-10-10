@@ -22,6 +22,16 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             this.authenticationConfigurationStore = authenticationConfigurationStore;
         }
 
+        public object GetConfiguration()
+        {
+            return configurationStore.Get<UsernamePasswordConfiguration>(SingletonId);
+        }
+
+        public void SetConfiguration(object config)
+        {
+            configurationStore.Update(config as UsernamePasswordConfiguration);
+        }
+
         public bool GetIsEnabled()
         {
             var doc = configurationStore.Get<UsernamePasswordConfiguration>(SingletonId);
