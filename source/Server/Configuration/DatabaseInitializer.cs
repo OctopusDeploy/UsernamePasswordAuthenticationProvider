@@ -25,7 +25,15 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
         {
             var doc = configurationStore.Get<UsernamePasswordConfiguration>(UsernamePasswordConfigurationStore.SingletonId);
             if (doc != null)
+            {
+                // TODO: to cover a dev team edge case during 4.0 Alpha. Can be removed before final release
+                if (doc.ConfigurationSchemaVersion != "1.0")
+                {
+                    doc.ConfigurationSchemaVersion = "1.0";
+                    configurationStore.Update(doc);
+                }
                 return;
+            }
 
             var authenticationMode = settings.Get("Octopus.WebPortal.AuthenticationMode", string.Empty);
             doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
