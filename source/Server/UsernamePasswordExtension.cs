@@ -3,6 +3,7 @@ using Octopus.Node.Extensibility.Authentication.Extensions;
 using Octopus.Node.Extensibility.Extensions;
 using Octopus.Node.Extensibility.Extensions.Infrastructure;
 using Octopus.Node.Extensibility.Extensions.Infrastructure.Configuration;
+using Octopus.Node.Extensibility.Extensions.Mappings;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth;
 
@@ -24,6 +25,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
             builder.RegisterType<UsernamePasswordConfigureCommands>()
                 .As<IContributeToConfigureCommand>()
+                .As<IContributeMappings>()
                 .InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordCredentialValidator>()
