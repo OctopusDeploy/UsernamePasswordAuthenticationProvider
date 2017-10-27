@@ -8,7 +8,7 @@ using Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePassw
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 {
-    [OctopusPlugin("UsernamePassword", "Octopus Deploy")]
+    [OctopusPlugin("UsernamePassword", "Octopus Deploy")] 
     public class UsernamePasswordExtension : IOctopusExtension
     {
         public void Load(ContainerBuilder builder)
