@@ -1,12 +1,7 @@
-﻿using Octopus.Data.Model;
-using Octopus.Data.Resources;
+﻿using Octopus.Node.Extensibility.Extensions.Infrastructure.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfigurationResource : IResource
-    {
-        public string Id { get; set; }
-
-        public LinkCollection Links { get; set; }
-    }
+    public class UsernamePasswordConfigurationResource : ExtensionConfigurationResource
+    { }
 }

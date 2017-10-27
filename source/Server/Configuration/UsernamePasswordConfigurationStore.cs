@@ -5,7 +5,7 @@ using Octopus.Node.Extensibility.HostServices.Mapping;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfigurationStore : ExtensionConfigurationStore<UsernamePasswordConfiguration, UsernamePasswordConfiguration>, IUsernamePasswordConfigurationStore
+    public class UsernamePasswordConfigurationStore : ExtensionConfigurationStore<UsernamePasswordConfiguration, UsernamePasswordConfigurationResource>, IUsernamePasswordConfigurationStore
     {
         public static string SingletonId = "authentication-usernamepassword";
 
@@ -13,16 +13,6 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             IConfigurationStore configurationStore,
             IResourceMappingFactory factory) : base(configurationStore, factory)
         {
-        }
-
-        protected override UsernamePasswordConfiguration MapToResource(UsernamePasswordConfiguration doc)
-        {
-            return doc;
-        }
-
-        protected override UsernamePasswordConfiguration MapFromResource(UsernamePasswordConfiguration resource)
-        {
-            return resource;
         }
 
         public override string Id => SingletonId;
