@@ -21,11 +21,11 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
             builder.RegisterType<UsernamePasswordConfigurationStore>()
                 .As<IUsernamePasswordConfigurationStore>()
                 .As<IHasConfigurationSettings>()
+                .As<IContributeMappings>()
                 .InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordConfigureCommands>()
                 .As<IContributeToConfigureCommand>()
-                .As<IContributeMappings>()
                 .InstancePerDependency();
 
             builder.RegisterType<UsernamePasswordCredentialValidator>()
