@@ -26,10 +26,10 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             yield return new ConfigurationValue("Octopus.UsernamePassword.IsEnabled", GetIsEnabled().ToString(), GetIsEnabled(), "Is Enabled");
         }
 
-        public override IResourceMapping GetMapping()
+        public override IEnumerable<IResourceMapping> GetMappings()
         {
-            return ResourceMappingFactory
-                .Create<UsernamePasswordConfigurationResource, UsernamePasswordConfiguration>();
+            return new [] { ResourceMappingFactory
+                .Create<UsernamePasswordConfigurationResource, UsernamePasswordConfiguration>() };
         }
     }
 }
