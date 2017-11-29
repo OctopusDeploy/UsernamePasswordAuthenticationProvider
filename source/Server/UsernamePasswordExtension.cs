@@ -20,7 +20,12 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 
             builder.RegisterType<UsernamePasswordConfigurationStore>()
                 .As<IUsernamePasswordConfigurationStore>()
+                .InstancePerDependency();
+
+            builder.RegisterType<UsernamePasswordConfigurationSettings>()
+                .As<IUsernamePasswordConfigurationSettings>()
                 .As<IHasConfigurationSettings>()
+                .As<IHasConfigurationSettingsResource>()
                 .As<IContributeMappings>()
                 .InstancePerDependency();
 
