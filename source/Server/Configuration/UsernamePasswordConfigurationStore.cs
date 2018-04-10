@@ -1,6 +1,5 @@
 ﻿using Octopus.Data.Storage.Configuration;
 using Octopus.Node.Extensibility.Extensions.Infrastructure.Configuration;
-using Octopus.Node.Extensibility.HostServices.Mapping;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
@@ -9,8 +8,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
         public static string SingletonId = "authentication-usernamepassword";
 
         public UsernamePasswordConfigurationStore(
-            IConfigurationStore configurationStore,
-            IResourceMappingFactory factory) : base(configurationStore, factory)
+            IConfigurationStore configurationStore) : base(configurationStore)
         {
         }
 
