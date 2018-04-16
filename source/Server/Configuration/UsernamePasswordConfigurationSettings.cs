@@ -8,8 +8,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
     {
 
         public UsernamePasswordConfigurationSettings(
-            IUsernamePasswordConfigurationStore configurationStore,
-            IResourceMappingFactory factory) : base(configurationStore, factory)
+            IUsernamePasswordConfigurationStore configurationStore) : base(configurationStore)
         {
         }
 
@@ -24,10 +23,9 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             yield return new ConfigurationValue("Octopus.UsernamePassword.IsEnabled", ConfigurationDocumentStore.GetIsEnabled().ToString(), ConfigurationDocumentStore.GetIsEnabled(), "Is Enabled");
         }
 
-        public override IEnumerable<IResourceMapping> GetMappings()
+        public override void BuildMappings(IResourceMappingsBuilder builder)
         {
-            return new [] { ResourceMappingFactory
-                .Create<UsernamePasswordConfigurationResource, UsernamePasswordConfiguration>() };
+            builder.Map<UsernamePasswordConfigurationResource, UsernamePasswordConfiguration>();
         }
     }
 }
