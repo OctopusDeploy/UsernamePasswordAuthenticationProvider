@@ -38,7 +38,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
             var authenticationMode = settings.Get("Octopus.WebPortal.AuthenticationMode", string.Empty);
             doc = new UsernamePasswordConfiguration("UsernamePassword", "Octopus Deploy")
             {
-                IsEnabled = legacyModes.Any(x => x.Equals(authenticationMode.Replace("\"", ""), StringComparison.InvariantCultureIgnoreCase)),
+                IsEnabled = legacyModes.Any(x => x.Equals(authenticationMode.Replace("\"", ""), StringComparison.OrdinalIgnoreCase)),
             };
 
             configurationStore.Create(doc);
