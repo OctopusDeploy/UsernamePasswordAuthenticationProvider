@@ -4,7 +4,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Octopus.Server.Extensibility.Authentication.UsernamePassword</RootNamespace>
     <AssemblyName>Octopus.Server.Extensibility.Authentication.UsernamePassword</AssemblyName>
-    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>net451;netstandard2.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
@@ -12,14 +12,12 @@
     <!-- These packages are copied to the output directory during the build process -->
     <PackageReference Include="Autofac" Version="4.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-    <PackageReference Include="Octopus.Configuration" Version="1.0.11" />
-    <PackageReference Include="NuGet.Versioning" Version="3.4.3" />
     <PackageReference Include="Octopus.Configuration" Version="2.0.0" />
     <PackageReference Include="Octopus.Diagnostics" Version="1.0.12" />
     <PackageReference Include="Octopus.Node.Extensibility" Version="5.0.4-removing-nancy0013" />
-    <PackageReference Include="Octopus.Node.Extensibility.Authentication" Version="8.0.1-more-nancy-work0004" />
+    <PackageReference Include="Octopus.Node.Extensibility.Authentication" Version="8.1.1-more-nancy-work0004" />
     <PackageReference Include="Octopus.Server.Extensibility" Version="5.0.4-removing-nancy0013" />
-    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="8.0.1-more-nancy-work0004" />
+    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="8.1.1-more-nancy-work0004" />
   </ItemGroup>
 
   <ItemGroup>
