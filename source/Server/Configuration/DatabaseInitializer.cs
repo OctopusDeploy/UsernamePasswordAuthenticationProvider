@@ -2,7 +2,7 @@
 using System.Linq;
 using Octopus.Configuration;
 using Octopus.Data.Storage.Configuration;
-using Octopus.Node.Extensibility.Extensions.Infrastructure;
+using Octopus.Server.Extensibility.Extensions.Infrastructure;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {

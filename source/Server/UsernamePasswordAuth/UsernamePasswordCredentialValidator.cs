@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using Octopus.Data.Storage.User;
-using Octopus.Node.Extensibility.Authentication.Storage.User;
+using Octopus.Server.Extensibility.Authentication.Storage.User;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth
