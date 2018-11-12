@@ -6,6 +6,10 @@
     <AssemblyName>Octopus.Server.Extensibility.Authentication.UsernamePassword</AssemblyName>
     <TargetFrameworks>net451;netstandard2.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>Octopus Deploy</Authors>
+    <PackageIconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,8 +11,8 @@
     <Description>Octopus Deploy Client Extensibility for Username Password</Description>
     <PackageId>Octopus.Client.Extensibility.Authentication.UsernamePassword</PackageId>
     <PackageIconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIconUrl>
-    <PackageLicenseUrl>https://octopus.com/</PackageLicenseUrl>
-    <PackageProjectUrl>https://octopus.com/</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
