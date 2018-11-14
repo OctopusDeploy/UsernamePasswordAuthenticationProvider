@@ -16,10 +16,10 @@
     <!-- These packages are copied to the output directory during the build process -->
     <PackageReference Include="Autofac" Version="4.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-    <PackageReference Include="Octopus.Configuration" Version="2.0.0" />
-    <PackageReference Include="Octopus.Diagnostics" Version="1.0.12" />
-    <PackageReference Include="Octopus.Server.Extensibility" Version="6.0.0" />
-    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="9.0.1" />
+    <PackageReference Include="Octopus.Configuration" Version="2.0.1" />
+    <PackageReference Include="Octopus.Diagnostics" Version="1.2.2" />
+    <PackageReference Include="Octopus.Server.Extensibility" Version="6.0.2" />
+    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
