@@ -27,7 +27,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
                 return new AuthenticationUserCreateResult();
             }
 
-            var user = userStore.GetByUsername(username);
+            var user = userStore.GetByUsername(username) ?? userStore.GetByEmailAddress(username);
 
             if (user != null && user.ValidatePassword(password))
             {
