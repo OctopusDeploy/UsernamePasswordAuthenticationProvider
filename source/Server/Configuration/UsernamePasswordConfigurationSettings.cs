@@ -18,9 +18,9 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
 
         public override string Description => "Usernames and passwords managed by Octopus";
 
-        public override IEnumerable<ConfigurationValue> GetConfigurationValues()
+        public override IEnumerable<IConfigurationValue> GetConfigurationValues()
         {
-            yield return new ConfigurationValue("Octopus.UsernamePassword.IsEnabled", ConfigurationDocumentStore.GetIsEnabled().ToString(), ConfigurationDocumentStore.GetIsEnabled(), "Is Enabled");
+            yield return new ConfigurationValue<bool>("Octopus.UsernamePassword.IsEnabled", ConfigurationDocumentStore.GetIsEnabled(), ConfigurationDocumentStore.GetIsEnabled(), "Is Enabled");
         }
 
         public override void BuildMappings(IResourceMappingsBuilder builder)
