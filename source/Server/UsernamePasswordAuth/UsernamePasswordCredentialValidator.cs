@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using Octopus.Data.Storage.User;
 using Octopus.Server.Extensibility.Authentication.Storage.User;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
@@ -27,7 +28,16 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
                 return new AuthenticationUserCreateResult();
             }
 
-            var user = userStore.GetByUsername(username) ?? userStore.GetByEmailAddress(username);
+            var user = userStore.GetByUsername(username);
+
+            if (user == null)
+            {
+                var userWithEmailMatchingUsername = userStore.GetByEmailAddress(username);
+                if (userWithEmailMatchingUsername.Length == 1)
+                {
+                    user = userWithEmailMatchingUsername.First();
+                }
+            }
 
             if (user != null && user.ValidatePassword(password))
             {
