@@ -2,7 +2,7 @@
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth
 {
-    public interface IUsernamePasswordCredentialValidator : IDoesBasicAuthentication
+    interface IUsernamePasswordCredentialValidator : IDoesBasicAuthentication
     {
     }
 }

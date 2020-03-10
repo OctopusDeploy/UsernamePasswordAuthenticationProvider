@@ -2,6 +2,6 @@
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfigurationResource : ExtensionConfigurationResource
+    class UsernamePasswordConfigurationResource : ExtensionConfigurationResource
     { }
 }

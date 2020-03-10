@@ -4,7 +4,7 @@ using Octopus.Server.Extensibility.HostServices.Mapping;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfigurationSettings : ExtensionConfigurationSettings<UsernamePasswordConfiguration, UsernamePasswordConfigurationResource, IUsernamePasswordConfigurationStore>, IUsernamePasswordConfigurationSettings
+    class UsernamePasswordConfigurationSettings : ExtensionConfigurationSettings<UsernamePasswordConfiguration, UsernamePasswordConfigurationResource, IUsernamePasswordConfigurationStore>, IUsernamePasswordConfigurationSettings
     {
 
         public UsernamePasswordConfigurationSettings(

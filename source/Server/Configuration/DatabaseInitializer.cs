@@ -6,7 +6,7 @@ using Octopus.Server.Extensibility.Extensions.Infrastructure;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class DatabaseInitializer : ExecuteWhenDatabaseInitializes
+    class DatabaseInitializer : ExecuteWhenDatabaseInitializes
     {
         readonly IConfigurationStore configurationStore;
         readonly IKeyValueStore settings;

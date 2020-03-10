@@ -2,7 +2,7 @@
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public class UsernamePasswordConfiguration : ExtensionConfigurationDocument
+    class UsernamePasswordConfiguration : ExtensionConfigurationDocument
     {
         public  UsernamePasswordConfiguration() : this("UsernamePassword", "Octopus Deploy")
         {

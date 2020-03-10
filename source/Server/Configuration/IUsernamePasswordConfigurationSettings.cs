@@ -2,7 +2,7 @@
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 {
-    public interface IUsernamePasswordConfigurationSettings : IHasConfigurationSettings
+    interface IUsernamePasswordConfigurationSettings : IHasConfigurationSettings
     {
     }
 }

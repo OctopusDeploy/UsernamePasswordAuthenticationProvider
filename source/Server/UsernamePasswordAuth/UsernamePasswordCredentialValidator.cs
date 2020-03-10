@@ -6,7 +6,7 @@ using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth
 {
-    public class UsernamePasswordCredentialValidator : IUsernamePasswordCredentialValidator
+    class UsernamePasswordCredentialValidator : IUsernamePasswordCredentialValidator
     {
         readonly IUsernamePasswordConfigurationStore configurationStore;
         readonly IUserStore userStore;

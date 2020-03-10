@@ -4,7 +4,7 @@ using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword
 {
-    public class UsernamePasswordAuthenticationProvider : IAuthenticationProvider
+    class UsernamePasswordAuthenticationProvider : IAuthenticationProvider
     {
         public const string ProviderName = "Octopus";
         
