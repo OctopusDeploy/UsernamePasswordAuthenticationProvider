@@ -8,9 +8,8 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
         {
         }
 
-        public UsernamePasswordConfiguration(string name, string extensionAuthor) : base(name, extensionAuthor, "1.0")
+        public UsernamePasswordConfiguration(string name, string extensionAuthor) : base(UsernamePasswordConfigurationStore.SingletonId, name, extensionAuthor, "1.0")
         {
-            Id = UsernamePasswordConfigurationStore.SingletonId;
         }
     }
 }
