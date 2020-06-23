@@ -4,20 +4,21 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Octopus.Server.Extensibility.Authentication.UsernamePassword</RootNamespace>
     <AssemblyName>Octopus.Server.Extensibility.Authentication.UsernamePassword</AssemblyName>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Octopus Deploy</Authors>
     <PackageIconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseExpressions>Apache-2.0</PackageLicenseExpressions>
     <PackageProjectUrl>https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider</PackageProjectUrl>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- These packages are copied to the output directory during the build process -->
-    <PackageReference Include="Octopus.Configuration" Version="2.0.1" />
-    <PackageReference Include="Octopus.Data" Version="5.0.0" />
-    <PackageReference Include="Octopus.Diagnostics" Version="1.3.0" />
-    <PackageReference Include="Octopus.Server.Extensibility" Version="9.0.0" />
-    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="9.3.0" />
+    <PackageReference Include="Octopus.Configuration" Version="2.0.2-enh-nullable0003" />
+    <PackageReference Include="Octopus.Data" Version="5.0.4-enh-nullable0004" />
+    <PackageReference Include="Octopus.Diagnostics" Version="1.3.2-enh-nullable0003" />
+    <PackageReference Include="Octopus.Server.Extensibility" Version="9.1.1-enh-nullable0005" />
+    <PackageReference Include="Octopus.Server.Extensibility.Authentication" Version="9.3.1-enh-nullable0005" />
   </ItemGroup>
 
 </Project>
