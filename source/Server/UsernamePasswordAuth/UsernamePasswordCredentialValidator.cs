@@ -20,6 +20,8 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
             this.userStore = userStore;
         }
 
+        public string IdentityProviderName => UsernamePasswordAuthenticationProvider.ProviderName;
+
         public int Priority => 50;
 
         public ResultFromExtension<IUser> ValidateCredentials(string username, string password, CancellationToken cancellationToken)
