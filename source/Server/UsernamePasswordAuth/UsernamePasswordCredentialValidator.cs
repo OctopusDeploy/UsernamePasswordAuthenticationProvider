@@ -24,7 +24,7 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
 
         public int Priority => 50;
 
-        public ResultFromExtension<IUser> ValidateCredentials(string username, string password, CancellationToken cancellationToken)
+        public IResultFromExtension<IUser> ValidateCredentials(string username, string password, CancellationToken cancellationToken)
         {
             if (!configurationStore.GetIsEnabled())
             {
