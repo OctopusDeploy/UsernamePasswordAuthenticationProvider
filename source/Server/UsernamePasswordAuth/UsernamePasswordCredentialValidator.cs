@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using System.Threading;
+using Octopus.Data.Model.User;
 using Octopus.Data.Storage.User;
-using Octopus.Server.Extensibility.Authentication.Storage.User;
 using Octopus.Server.Extensibility.Authentication.UsernamePassword.Configuration;
+using Octopus.Server.Extensibility.Results;
 
 namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernamePasswordAuth
 {
@@ -19,13 +20,15 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
             this.userStore = userStore;
         }
 
+        public string IdentityProviderName => UsernamePasswordAuthenticationProvider.ProviderName;
+
         public int Priority => 50;
 
-        public AuthenticationUserCreateResult ValidateCredentials(string username, string password, CancellationToken cancellationToken)
+        public IResultFromExtension<IUser> ValidateCredentials(string username, string password, CancellationToken cancellationToken)
         {
             if (!configurationStore.GetIsEnabled())
             {
-                return new AuthenticationUserCreateResult();
+                return ResultFromExtension<IUser>.ExtensionDisabled();
             }
 
             var user = userStore.GetByUsername(username);
@@ -41,10 +44,10 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.UsernameP
 
             if (user != null && user.ValidatePassword(password))
             {
-                return new AuthenticationUserCreateResult(user);
+                return ResultFromExtension<IUser>.Success(user);
             }
 
-            return new AuthenticationUserCreateResult("Invalid username or password.");
+            return ResultFromExtension<IUser>.Failed("Invalid username or password.");
         }
     }
 }
