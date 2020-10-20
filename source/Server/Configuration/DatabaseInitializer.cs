@@ -9,11 +9,11 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
     class DatabaseInitializer : ExecuteWhenDatabaseInitializes
     {
         readonly IConfigurationStore configurationStore;
-        readonly IKeyValueStore settings;
+        readonly IWritableKeyValueStore settings;
 
         bool cleanupRequired = false;
 
-        public DatabaseInitializer(IConfigurationStore configurationStore, IKeyValueStore settings)
+        public DatabaseInitializer(IConfigurationStore configurationStore, IWritableKeyValueStore settings)
         {
             this.configurationStore = configurationStore;
             this.settings = settings;
