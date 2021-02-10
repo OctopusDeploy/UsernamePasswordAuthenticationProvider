@@ -62,7 +62,8 @@ source/OctopusTools.v2.ncrunchsolution
 .vs
 .idea
 .vscode
-/tools/
+/tools/*
 /artifacts/
 /publish/
+!packages.config
 TestResult.xml
