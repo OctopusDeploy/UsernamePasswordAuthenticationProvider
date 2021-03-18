@@ -7,11 +7,11 @@ namespace Octopus.Server.Extensibility.Authentication.UsernamePassword.Configura
 {
     class UsernamePasswordConfigureCommands : IContributeToConfigureCommand
     {
-        readonly ILog log;
+        readonly ISystemLog log;
         readonly Lazy<IUsernamePasswordConfigurationStore> configurationStore;
 
         public UsernamePasswordConfigureCommands(
-            ILog log,
+            ISystemLog log,
             Lazy<IUsernamePasswordConfigurationStore> configurationStore)
         {
             this.log = log;
