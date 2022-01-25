@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Octopus.Client.Extensibility.Authentication.UsernamePassword</RootNamespace>
     <AssemblyName>Octopus.Client.Extensibility.Authentication.UsernamePassword</AssemblyName>
     <NeutralLanguage>en-US</NeutralLanguage>
