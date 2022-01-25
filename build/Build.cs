@@ -52,6 +52,8 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() =>
         {
+            Logger.Info("Building Octopus Server Username Password Authentication Provider v{0}", OctoVersionInfo.FullSemVer);
+
             DotNetBuild(s => s
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
@@ -64,6 +66,8 @@ class Build : NukeBuild
         .Produces(ArtifactsDirectory / "*.nupkg")
         .Executes(() =>
         {
+            Logger.Info("Packing Octopus Server Username Password Authentication Provider v{0}", OctoVersionInfo.FullSemVer);
+
             DotNetPack(_ => _
                 .SetProject(Solution)
                 .SetVersion(OctoVersionInfo.FullSemVer)
