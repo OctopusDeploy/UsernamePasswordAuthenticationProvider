@@ -66,3 +66,5 @@ source/OctopusTools.v2.ncrunchsolution
 /publish/
 !packages.config
 TestResult.xml
+*.DS_Store
+**/*.DS_Store
