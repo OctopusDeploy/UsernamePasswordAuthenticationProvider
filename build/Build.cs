@@ -22,7 +22,7 @@ class Build : NukeBuild
 
     public static int Main () => Execute<Build>(x => x.Default);
 
-    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
+    [Parameter("Configuration to build - 'Release' (server)")]
     readonly Configuration Configuration = Configuration.Release;
 
     [Solution] readonly Solution Solution;
