@@ -5,10 +5,9 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
-using Nuke.OctoVersion;
-using OctoVersion.Core;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using Nuke.Common.Tools.OctoVersion;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
@@ -26,7 +25,7 @@ class Build : NukeBuild
     readonly Configuration Configuration = Configuration.Release;
 
     [Solution] readonly Solution Solution;
-    [NukeOctoVersion] readonly OctoVersionInfo OctoVersionInfo;
+    [OctoVersion] readonly OctoVersionInfo OctoVersionInfo;
 
     AbsolutePath SourceDirectory => RootDirectory / "source";
     AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
