@@ -1,3 +1,4 @@
+using System;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.Execution;
@@ -51,6 +52,10 @@ class Build : NukeBuild
         .Executes(() =>
         {
             Logger.Info("Building Octopus Server Username Password Authentication Provider v{0}", OctoVersionInfo.FullSemVer);
+            
+            // This is done to pass the data to github actions
+            Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
+            Console.Out.WriteLine($"::set-output name=prerelease_tag::{OctoVersionInfo.PreReleaseTagWithDash}");
 
             DotNetBuild(s => s
                 .SetProjectFile(Solution)

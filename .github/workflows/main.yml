@@ -47,13 +47,13 @@ jobs:
       - name: GitHub Tag 🏷
         id: github-tag
         uses: actions/github-script@v3
-        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]' && github.event_name != 'schedule' && !contains( steps.build.outputs.octoversion_fullsemver, '-' )
+        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]' && github.event_name != 'schedule' && steps.build.outputs.prerelease_tag == ''
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/${{ steps.build.outputs.octoversion_fullsemver }}",
+              ref: "refs/tags/${{ steps.build.outputs.semver }}",
               sha: context.sha
             })
